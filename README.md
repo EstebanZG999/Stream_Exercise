@@ -78,3 +78,34 @@ d5c5499024427c6da85428d81bd89a327e5132d8f71a3157cb7acabceb7689f9f5dc59c3c15991ac
 
 Texto descifrado:
 La verdad que esto de cifrados esta interesante
+
+
+# Parte 4: Reflexión Técnica
+
+## 4.1 Limitaciones de PRNG simples
+
+Los generadores simple pseudoaleatorios como random.Random() tienen un comportamiento determinista y por lo tanto no sirven para aplicaciones criptográficas ya que un atacante puede predecir las salidas, incluso si esto lo logra a partir de intentar inferir la seed o desde el estado interno siempre y cuando disponga de suficientes salidas del PRNG. Por ello, aunque estos generadores pueden mostrarse como buenos generadores para simulaciones no servirían para resistir ataques de atacante activos. Todo PRNG tiene un período finito, lo que quiere decir que se repiten todas las salidas inevitablemente. En criptografía no solo basta con que una salida "se vea aleatoria", sino que también debe ser impredecible incluso para un atacante que ha visto varios bloques de el keystream, una propiedad que estos generadores generales no garantizan.
+
+## 4.2 Comparación con Stream Ciphers Modernos
+
+### ¿Qué mejoras de seguridad ofrecen?
+
+Los algoritmos contemporáneos como ChaCha20 y AES-CTR presentan mejoras importantes porque el keystream se genera utilizando primitivas criptográficas analizadas y estandarizadas y no a partir de un PRNG genérico. Esto les da resistencia a los ataques conocidos, impracticabilidad, seguridad formal basada en análisis matemáticos y revisión académica. Esto hace que el riesgo de poder reconstruir el flujo o hacer predicciones futuras del keystream se vea sensiblemente reducido.
+
+### ¿Qué técnicas usan para evitar las vulnerabilidades de PRNG básicos?
+
+Estos algoritmos utilizan mecanismos como nonces o IVs únicos por mensaje y contadores internos para garantizar que la keystream nunca se repita bajo la misma clave. A su vez, la keystream se obtiene mediante funciones criptográficas, que precisamente se encuentran diseñadas para resistir la correlación, predicción y ataques estructurales, evitando las debilidades de generadores pseudoaleatorios simples.
+
+### ¿Cómo manejan la inicialización y el estado interno?
+
+En ChaCha20 y AES-CTR, el estado interno se forma mediante la combinación de una clave secreta, un nonce único y un contador incremental, con el fin de que se puedan generar múltiples bloques diferenciados y no repetidos del keystream. Este diseño permite, además, separar claramente la clave del propio mecanismo de generación de flujo y garantiza que, aunque se cifren un gran número de mensajes con una misma clave, el uso adecuado de nonces diferentes impida volver a usar el mismo keystream, incrementando así la seguridad frente a ataques reales.
+
+### Incluya referencias bibliográficas a sus fuentes.
+
+Nir, Y., & Langley, A. (2015, May 1). ChaCha20 and Poly1305 for IETF Protocols. IETF. https://datatracker.ietf.org/doc/html/rfc7539
+
+‌Dworkin, M. (2001). Recommendation for Block Cipher Modes of Operation Methods and Techniques. https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38a.pdf
+
+‌Python. (2025). random — Generate pseudo-random numbers — Python 3.8.2 documentation. Docs.python.org. https://docs.python.org/3/library/random.html
+
+‌
