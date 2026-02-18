@@ -20,7 +20,7 @@ def ejemplo_2_2() -> None:
     print(f"Mensaje 1: {mensaje_1}")
     print(f"Mensaje 2: {mensaje_2}")
     print(f"C1 xor C2 == P1 xor P2 ? {xor_cifrados == xor_planos}")
-    print(f"C1 xor C2: {xor_cifrados}")
+    print(f"C1 xor C2: {xor_cifrados.hex()}")
 
 
 if __name__ == "__main__":

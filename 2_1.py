@@ -14,8 +14,8 @@ def ejemplo_2_1() -> None:
 
     print("Ejemplo 2.1")
     print(f"Mensaje: {mensaje}")
-    print(f"Cifrado con {clave_a}: {cifrado_a}")
-    print(f"Cifrado con {clave_b}: {cifrado_b}")
+    print(f"Cifrado con {clave_a}: {cifrado_a.hex()}")
+    print(f"Cifrado con {clave_b}: {cifrado_b.hex()}")
     print(f"Son iguales? {cifrado_a == cifrado_b}")
 
 
