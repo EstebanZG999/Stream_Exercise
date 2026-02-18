@@ -27,10 +27,26 @@ def descifrar(cifrado: bytes, clave: str) -> str:
 
 
 if __name__ == "__main__":
-    mensaje_original = "Hola mundo"
-    clave = "mi_clave"
 
-    c = cifrar(mensaje_original, clave)
-    d = descifrar(c, clave)
+    mensaje_og = "Hola mundo"
+    clave_og = "mi_clave"
 
-    print(d == mensaje_original)
+    ci = cifrar(mensaje_og, clave_og)
+    de = descifrar(ci, clave_og)
+
+    print(de == mensaje_og)
+
+    ejemplos = [
+        ("Hola mundo", "mi_clave"),
+        ("Hola soy Juan P CISO", "ciso1234"),
+        ("La verdad que esto de cifrados esta interesante", "clave_del_pentagono")
+    ]
+
+    for mensaje_original, clave in ejemplos:
+        c = cifrar(mensaje_original, clave)
+        d = descifrar(c, clave)
+
+        print("Texto:", mensaje_original)
+        print("Clave:", clave)
+        print("Cifrado:", c.hex())
+        print("Descifrado:", d)
