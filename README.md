@@ -1,5 +1,46 @@
-# Parte 2: Análisis de Seguridad
+# Stream Cipher – Laboratorio de Cifrados de Información
 
+## Descripción del Proyecto
+
+Este proyecto implementa un esquema básico de cifrado de flujo (stream cipher) utilizando la operación XOR entre el mensaje en texto plano y un keystream pseudoaleatorio generado a partir de una clave (seed).
+
+El objetivo del laboratorio es comprender el funcionamiento fundamental de los stream ciphers, analizar los riesgos asociados a la reutilización del keystream y evaluar las diferencias entre una implementación educativa y los algoritmos criptográficos modernos utilizados en entornos reales.
+
+La implementación utiliza el módulo random de Python para generar un keystream determinístico basado en una clave proporcionada por el usuario. El cifrado y descifrado se realizan aplicando la operación XOR byte a byte.
+
+
+## Estructura del Proyecto
+
+stream_cipher.py → Implementación del keystream, cifrado y descifrado.
+
+test_stream.py → Pruebas unitarias para validar el comportamiento del sistema.
+
+README.md → Documentación del proyecto.
+
+## Instrucciones de Instalación y Uso
+
+### Clonar el repositorio:
+
+git clone <URL_DEL_REPOSITORIO>
+cd <NOMBRE_DEL_PROYECTO>
+
+
+### Ejecutar el archivo principal:
+
+python stream_cipher.py
+
+
+### Ejecutar las pruebas unitarias:
+
+python test_stream.py
+
+
+Si todas las pruebas pasan correctamente, se mostrará el mensaje:
+
+Todas las pruebas pasaron correctamente.
+
+
+# Parte 2: Análisis de Seguridad
 
 ## 2.1 Variación de la Clave
 
