@@ -26,10 +26,11 @@ def descifrar(cifrado: bytes, clave: str) -> str:
     return mensaje
 
 
-mensaje_original = "Hola mundo"
-clave = "mi_clave"
+if __name__ == "__main__":
+    mensaje_original = "Hola mundo"
+    clave = "mi_clave"
 
-c = cifrar(mensaje_original, clave)
-d = descifrar(c, clave)
+    c = cifrar(mensaje_original, clave)
+    d = descifrar(c, clave)
 
-print(d == mensaje_original)
+    print(d == mensaje_original)
