@@ -30,3 +30,51 @@ La longitud del keystream afecta a la seguridad del cifrado mediante siento keys
 2. No utilizar el mismo keystream, que cada mensaje utilice un nonce para evitar la reutilizacion de flujo. 
 3. Utilizar algoritmos modernos de cifrados que esten auditados y probados como el ChaCha20. 
 4. Que el keystream sea del mismo largo o mayor al mensaje, para evitar que se repita la periodicidad.
+
+# Parte 3
+
+## 3.1 Ejemplos de Entrada/Salida
+
+A continuación se muestran ejemplos reales utilizando la implementación desarrollada.
+
+### Ejemplo 1
+
+Texto plano:
+Hola mundo
+
+Clave utilizada:
+mi_clave
+
+Texto cifrado (hex):
+aafded61de52617ca36c
+
+Texto descifrado:
+Hola mundo
+
+### Ejemplo 2
+
+Texto plano:
+Hola soy Juan P CISO
+
+Clave utilizada:
+ciso1234
+
+Texto cifrado (hex):
+00d21b98db9ecabc0436db136a0814d97931f897
+
+Texto descifrado:
+Hola soy Juan P CISO
+
+### Ejemplo 3
+
+Texto plano:
+La verdad que esto de cifrados esta interesante
+
+Clave utilizada:
+clave_del_pentagono
+
+Texto cifrado (hex):
+d5c5499024427c6da85428d81bd89a327e5132d8f71a3157cb7acabceb7689f9f5dc59c3c15991ac538ef96ec267f2
+
+Texto descifrado:
+La verdad que esto de cifrados esta interesante
